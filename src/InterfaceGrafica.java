@@ -24,6 +24,7 @@ public class InterfaceGrafica extends JFrame {
     public InterfaceGrafica() {
         // Configurações da janela
         setTitle("Jogo da Forca"); // Título da janela
+
         setSize(1100, 900); // Tamanho da janela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Fechar o aplicativo ao clicar
         setResizable(false); // Não permitir redimensionar a janela
@@ -33,8 +34,8 @@ public class InterfaceGrafica extends JFrame {
         painelPrincipal.setBackground(new Color(255, 204, 229));
 
         JLabel titulo = new JLabel("Jogo da Forca");
-        titulo.setFont(new Font("Arial", Font.PLAIN, 50));
-        titulo.setBounds(550, 20, 360, 70);
+        titulo.setFont(new Font("Comic Sans MS", Font.BOLD, 60));
+        titulo.setBounds(500, 40, 460, 80);
         painelPrincipal.add(titulo);
 
         ImageIcon img = new ImageIcon("img\\forca.png");
@@ -228,8 +229,8 @@ public class InterfaceGrafica extends JFrame {
                                 + "Se nao errar pontuação é 60, onde palavras medias soma mais 50 e palavras dificil soma mais 100.\n"
                                 + "Clique em Iniciar Jogo para começar.\n" + "Clique em Dica para revelar uma letra.\n"
                                 + "Clique em Info para ver as instruções do jogo.\n"
-                                + "Clique em Carregar Palavras para carregar a lista de palavras.\n"
-                                + "Clique em Salvar Palavras para salvar a lista de palavras.\n"
+                                + "Clique em Carregar Save para carregar o historico do jogo e pontuação.\n"
+                                + "Clique em Salvar Jogo para salvar o historico do jogo e pontuação.\n"
                                 + "Clique em Modo 2 Jogadores para jogar com um amigo.\n"
                                 + "Clique em Configurar Forca para mudar a dificuldade das palavras.");
             }
