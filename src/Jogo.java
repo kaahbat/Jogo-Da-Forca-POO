@@ -54,10 +54,14 @@ public class Jogo {
     public void iniciarJogo() {
         // reseta score e tentativas
         if (modo2Jogadores) {
+            palavras.clear();
             pontuacao = 0;
             contagemDeVitorias = 0;
             contagemDeDerrotas = 0;
+
             historico.limparHistorico();
+            lerListaPalavras();
+
         }
         if (dificuldadePadrao != dificuldade) {
             palavras.clear();
@@ -72,25 +76,23 @@ public class Jogo {
         indicePalavraEscolhida = escolherPalavra();
 
         // exibe a dica
-        System.out.println(palavras.get(indicePalavraEscolhida).getPalavraSecreta() + ",");
+        // System.out.println(palavras.get(indicePalavraEscolhida).getPalavraSecreta() +
+        // ",");
 
         exibirDica();
         /*
-         * // exibe historico de partidas
-         * if (historico != null) {
-         * historico.exibirHistorico();
          * 
+         * // imprime a posição da palavra escolhida
+         * for (int i = 0; i < palavras.size(); i++) {
+         * if (palavras.get(i).getPalavraSecreta().equals(palavras.get(
+         * indicePalavraEscolhida).getPalavraSecreta())) {
+         * System.out.println("indice " + i);
          * }
+         * }
+         * 
+         * System.out.println("indice aaaaaa " + indicePalavraEscolhida);
          */
-
-        // imprime a posição da palavra escolhida
-        for (int i = 0; i < palavras.size(); i++) {
-            if (palavras.get(i).getPalavraSecreta().equals(palavras.get(indicePalavraEscolhida).getPalavraSecreta())) {
-                System.out.println("indice " + i);
-            }
-        }
-
-        System.out.println("indice aaaaaa " + indicePalavraEscolhida);
+        forca.resetarForca();
 
     }
 
@@ -113,6 +115,7 @@ public class Jogo {
             historico.exibirHistorico();
 
         }
+        forca.resetarForca();
 
     }
 

@@ -19,7 +19,6 @@ public class InterfaceGrafica extends JFrame {
     private JPanel painelTentativas = new JPanel();
     private JPanel painelBotaoLetras = new JPanel();
     private JPanel painelScore = new JPanel();
-    private JLabel imagemForca = new JLabel();
 
     public InterfaceGrafica() {
         // Configurações da janela
@@ -37,18 +36,15 @@ public class InterfaceGrafica extends JFrame {
         titulo.setFont(new Font("Comic Sans MS", Font.BOLD, 60));
         titulo.setBounds(500, 40, 460, 80);
         painelPrincipal.add(titulo);
-
+        JLabel imagemForca = new JLabel();
         ImageIcon img = new ImageIcon("img\\forca.png");
         imagemForca.setIcon(img);
         imagemForca.setBounds(5, 4, 400, 400);
         painelPrincipal.add(imagemForca);
 
-        // painel pra mostrar score
         painelScore.setLayout(new GridLayout(1, 3));
         painelScore.setBounds(23, 440, 300, 50);
-        // painelScore.setBorder(BorderFactory.createTitledBorder(BorderFactory.createMatteBorder(0,
-        // 0, 0, 0, Color.BLACK),
-        // "", TitledBorder.CENTER, TitledBorder.TOP));
+
         painelScore.setBackground(new Color(255, 153, 204));
 
         JLabel score = new JLabel("  Score: " + jogo.getPontuacao());
@@ -149,7 +145,6 @@ public class InterfaceGrafica extends JFrame {
                 // inicio do jogo
 
                 iniciarJogo();
-
                 score.setText("  Score: " + jogo.getPontuacao());
                 vitorias.setText(" Vitórias: " + jogo.getContagemDeVitorias());
                 derrotas.setText(" Derrotas: " + jogo.getContagemDeDerrotas());
@@ -231,7 +226,8 @@ public class InterfaceGrafica extends JFrame {
                                 + "Clique em Info para ver as instruções do jogo.\n"
                                 + "Clique em Carregar Save para carregar o historico do jogo e pontuação.\n"
                                 + "Clique em Salvar Jogo para salvar o historico do jogo e pontuação.\n"
-                                + "Clique em Modo 2 Jogadores para jogar com um amigo.\n"
+                                + "Clique em Modo 2 Jogadores para jogar com um amigo, enquanto voce vai reiniciando o jogo com esse modo\n"
+                                + " o historico é mantido, ao clicar em novo jogo sem salvar reinicia o historico.\n"
                                 + "Clique em Configurar Forca para mudar a dificuldade das palavras.");
             }
         });
@@ -351,6 +347,8 @@ public class InterfaceGrafica extends JFrame {
         painelPrincipal.add(painelMenu);
 
         painelPrincipal.add(painelBotaoLetras);
+        painelPrincipal.revalidate();
+        painelPrincipal.repaint();
 
         add(painelPrincipal);
 
@@ -387,6 +385,9 @@ public class InterfaceGrafica extends JFrame {
         jogo.setTentativasRestantes(6);
         setTentativasRestantes(jogo.getTentativasRestantes());
         criarDesenhoForca();
+
+        painelPrincipal.revalidate();
+        painelPrincipal.repaint();
 
     }
 
@@ -506,6 +507,7 @@ public class InterfaceGrafica extends JFrame {
 
     public void criarDesenhoForca() {
         // Limpa a forca
+
         painelPrincipal.remove(pernaDireita);
         painelPrincipal.remove(pernaEsquerda);
         painelPrincipal.remove(bracoDireito);
@@ -513,8 +515,14 @@ public class InterfaceGrafica extends JFrame {
         painelPrincipal.remove(tronco);
         painelPrincipal.remove(cabeca);
 
+        painelPrincipal.revalidate();
+        painelPrincipal.repaint();
+
+        // Cria a forca
+
         if (jogo.getForca().getPernaDireita()) {
             mostrarPernaDireita();
+
         }
         if (jogo.getForca().getPernaEsquerda()) {
             mostrarPernaEsquerda();
@@ -527,9 +535,11 @@ public class InterfaceGrafica extends JFrame {
         }
         if (jogo.getForca().getTronco()) {
             mostrarTronco();
+
         }
         if (jogo.getForca().getCabeca()) {
             mostrarCabeca();
+
         }
     }
 
@@ -537,6 +547,7 @@ public class InterfaceGrafica extends JFrame {
         ImageIcon img = new ImageIcon("img\\pd.png");
         pernaDireita.setIcon(img);
         pernaDireita.setBounds(258, 250, 150, 150);
+
         painelPrincipal.add(pernaDireita);
 
         painelPrincipal.revalidate();
@@ -598,17 +609,4 @@ public class InterfaceGrafica extends JFrame {
         painelPrincipal.repaint();
     }
 
-    // Método principal para executar a interface
-
-    /*
-     * public static void main(String[] args) {
-     * SwingUtilities.invokeLater(new Runnable() {
-     * 
-     * @Override
-     * public void run() {
-     * new InterfaceGrafica().setVisible(true);
-     * }
-     * });
-     * }
-     */
 }

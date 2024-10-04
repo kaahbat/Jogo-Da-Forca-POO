@@ -44,7 +44,7 @@ public class Forca {
 
     public void resetarForca() {
         for (int i = 0; i < forca.length; i++) {
-            forca[i] = true;
+            forca[i] = false;
         }
     }
 
