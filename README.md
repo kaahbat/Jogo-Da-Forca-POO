@@ -38,10 +38,6 @@ O jogo permite que o jogador salve seu progresso e o retome mais tarde.
 - O sistema lê o arquivo e restaura o histórico de derrotas, vitórias e a pontuação que o jogador tinha no momento em que salvou.
 - O método `carregaGame` na classe `Historico` lê o arquivo e popula as listas de histórico com os dados salvos. Em seguida, a classe `Jogo` utiliza esses dados para atualizar o estado da partida atual.
 
-## Como Compilar e Executar
-
-É necessário ter o Java Development Kit (JDK) instalado no sistema para compilar e executar o jogo.
-
 ## Estrutura de Classes
 
 O projeto é dividido em múltiplas classes principais que gerenciam a lógica do jogo e a interface.
