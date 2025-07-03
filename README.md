@@ -1,6 +1,7 @@
 # Jogo da Forca
 
 Este é um projeto de um clássico jogo da forca desenvolvido em Java. O programa foi criado para ser uma experiência interativa, desafiando os jogadores a adivinhar uma palavra secreta por meio de tentativas de letras. O desenvolvimento foi orientado a objetos, buscando criar um código com alta coesão e baixo acoplamento.
+Consulte o relatório na pasta `docs`
 
 ---
 
